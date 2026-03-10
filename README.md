@@ -1,2 +1,22 @@
 # Array-5-gg
 Practice program
+class Solution:
+    def isBalanced(self, s):
+        stack = []
+        pairs = {')': '(', '}': '{', ']': '['}
+
+        for ch in s:
+            if ch in "({[":
+                stack.append(ch)
+            else:
+                if not stack or stack[-1] != pairs[ch]:
+                    return False
+                stack.pop()
+
+        return len(stack) == 0
+Output:
+Input: 
+s =
+[{()}]
+Your Output:
+true
